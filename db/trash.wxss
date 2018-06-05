@@ -1,0 +1,35 @@
+/*
+<view>
+  <button bindtap="goBuild">新建挑战</button>
+</view>
+<block wx:if="{{userClgs.length>0}}">
+  <block wx:for="{{userClgs}}" wx:for-item="clg" wx:key="{{clg.clgid}}">
+    <view bindtap="goDetail" data-clgid="{{clg.clgid}}">
+      <text>{{clg.title}}</text>
+    </view>
+  </block>
+</block>
+<block wx:else>
+  <view>
+    <text>无记录</text>
+  </view>
+</block>
+
+
+
+
+
+
+恢复<view class="commentWrap {{isIpx ? 'fixCommentWrap' : ''}}" wx:if="{{showComment || showDiss}}">
+    <input type="text" class="commentInput"
+           placeholder="{{showComment ? nickname ? ('回复' + nickname) : '评论' : '举报'}}"
+           focus="{{showComment || showDiss}}" value="{{comment}}" bindinput="comment"
+           cursor-spacing="10"/>
+
+    <form report-submit="true" bindsubmit="submitComment">
+        <button formType="submit" class="commentSubmit {{allowSubmit ? 'active' : 'negative'}}"
+                disabled="{{allowSubmit ? false : true}}">发送
+        </button>
+    </form>
+</view>
+*/

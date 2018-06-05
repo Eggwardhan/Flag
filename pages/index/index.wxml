@@ -1,0 +1,54 @@
+
+<view class="top-tab flex-wrp flex-tab ">
+  <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab"> {{idx}}:{{itemName}} </view>
+</view>
+
+<scroll-view scroll-y="true" class="container discovery withtab" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+ 
+
+  <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay='{{autoplay}}' interval="{{intercal}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+ <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}"> 
+    <view class="list-box">
+        <view class="newest-list">
+            <navigator url="../detail/detail">
+                <image src=""></image>
+                <view class="newest-text"><text>挑战1</text></view>
+                <view class="newest-text"><text>7-8</text></view>
+            </navigator>
+        </view>
+        <view class="newest-list">
+            <navigator url="../detail/detail">
+                <image src=""></image>
+                <view class="newest-text"><text>挑战2</text></view>
+                <view class="newest-text"><text>9-9</text></view>
+            </navigator>
+        </view>
+        <view class="newest-list">
+            <navigator url="../detail/detail">
+                <image src=""></image>
+                <view class="newest-text"><text>喜马拉雅山</text></view>
+                <view class="newest-text"><text>2018-8-8</text></view>
+            </navigator>
+        </view>
+    </view>
+ </view>
+  
+
+  <view class="ctnt1 placehold" hidden="{{currentNavtab==1 ? '' : true}}">
+    <navigator url="../build/build">
+    <text>最新</text>
+    </navigator>
+  </view>
+
+
+<navigator url="../build/build">
+<view class="float-action" bindtap="ballClickEvent" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent" > 
+</view></navigator>
+
+</scroll-view>

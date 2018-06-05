@@ -1,0 +1,75 @@
+/* pages/photoCompetition/uploadPhoto/uploadPhoto.wxss */
+.box{
+  display: flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items :space-between;
+}
+.input{
+  height:400rpx;
+  display: flex;
+  flex-direction : column;
+  align-items :space-between;
+  justify-content: space-between;
+}
+.picture-list{
+    display: inline-block;
+    width: 750rpx;
+    height: 347rpx;
+    margin:0 15rpx 10rpx 0;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+.picture-list:nth-child(2n){
+    margin-right: 0;
+}
+.picture-list image{
+    width: 180rpx;
+    height: 180rpx;
+    margin: 30rpx 0 20rpx;
+}
+.picture .newest-text{
+    font-size: 32rpx;
+    line-height: 45rpx;
+}  
+.btn{
+  width: 90%;
+
+  bottom: 0rpx;
+
+  background-color: #1E90FF;
+
+  color: #FFF;
+  }
+.btn_hover{
+width :90%;
+bottom :0;
+background-color: #8DEEEE;
+  }
+.inputTitle{
+margin-left: 40rpx;
+width: 90%;
+height: 50px; 
+border: 1px solid lightgray;
+border-radius: 10px;
+}
+.inputIntro{
+  display: flex-incline;
+  flex-flow: row wrap;
+   width: 90%;
+   margin-left: 40rpx;
+   height: 255rpx;
+   border: 1px solid lightgray;
+   border-radius: 10px
+}
+
+.normalText{
+margin-left: 40rpx;
+}
+.checkbox{
+ margin-left: 40rpx;
+}
+.section{
+  margin-left: 40rpx;
+}

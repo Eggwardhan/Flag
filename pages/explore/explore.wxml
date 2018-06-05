@@ -1,0 +1,12 @@
+<swiper indicator-dots="true" autoplay="true" interval="5000">
+  <block wx:for="{{recommendClgs}}" wx:for-item="clg" wx:key="{{clg.clgid}}">
+    <swiper-item bindtap="goDetail" data-clgid="{{clg.clgid}}">
+      <text>{{clg.title}}</text>
+    </swiper-item>
+  </block>
+</swiper>
+<block wx:for="{{localLatestClgs}}" wx:for-item="clg" wx:key="{{clg.clgid}}">
+  <view bindtap="goDetail" data-clgid="{{clg.clgid}}">
+    <text>{{clg.title}}</text>
+  </view>
+</block>

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/explore/explore",
+    "pages/build/build",
+    "pages/detail/detail"
+    
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#a0eee1",
+    "navigationBarTitleText": "旗友",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#336699",
+    "selectedColor": "#666699",
+    "borderStyle": "black",
+    "backgroundColor": "#99CCCC",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_active.png",
+        "text": "挑战"
+      },
+      {
+        "pagePath": "pages/explore/explore",
+        "iconPath": "images/explore.png",
+        "selectedIconPath": "images/explore_active.png",
+        "text": "更多"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

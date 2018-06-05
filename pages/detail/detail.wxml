@@ -1,0 +1,64 @@
+
+
+<scroll-view class="container" bindtap="hideComment" scroll-y>
+    <block wx:if="{{hasAuth}}">
+        <view class="title">
+            <view class="titleLeft">
+                <image class="avatar" src="{{data.avatar_url}}"/>
+                <text class="titleTxt bold">{{data.title}}</text>
+            </view>
+           
+        </view>
+        <image class="image" mode="widthFix" src="{{data.img[0]}}" lazy-load bindtap="preview"/>
+        <view class="iconWrap">
+            <view class="iconLeft">
+                <image class="icon" src="/images/like.png" bindtap="tapLike"
+                       wx:if="{{!likeActive}}"/>
+                <image class="icon" src="/images/like_active.png" bindtap="tapLike" wx:else/>
+                <image class="icon" src="/images/comment.png" catchtap="tapComment"/>
+                <image class="icon" src="/images/diss.png" catchtap="tapDiss"/>
+            </view>
+            <view class="likeNum">点赞数：
+                <text class="bold">{{data.praise_count}}</text>
+            </view>
+        </view>
+
+        <view class="intro">
+            <view class="introTitle bold">《{{data.title}}》</view>
+            <view class="introTxt">{{data.intro}}</view>
+        </view>
+        <block wx:if="{{comments.length}}">
+            <view class="triangle"></view>
+            <view class="comment">
+                <button class="commentItem" wx:for="{{comments}}" catchtap="tapComment"
+                        data-userId="{{item.from_user.user_id}}"
+                        data-nickname="{{item.from_user.nickname}}">
+                    <view class="commentUser">
+                        <text class="nickname">{{item.from_user.nickname}}</text>
+                        <text wx:if="{{item.to_user && item.from_user.user_id != item.to_user.user_id}}">回复<text class="nickname">{{item.to_user.nickname}}</text></text> : {{item.content}}
+                    </view>
+                </button>
+            </view>
+        </block>
+    </block>
+    <view class="authCover" wx:elif="{{canIUse}}">
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="authBtn active">
+            授权登录
+        </button>
+    </view>
+    <view wx:else class="prompt">请升级微信版本</view>
+</scroll-view>
+
+
+<view>{{title}}</view>
+
+<view>{{joined?"已":"未"}}参加</view>
+<view>{{ended?"已":"未"}}结束</view>
+<view wx:if="{{!ended}}">
+  <button wx:if="{{joined}}" bindtap="quit">退出</button>
+  <button wx:else bindtap="join">加入</button>
+</view>
+<view wx:if="{{joined}}">
+  <button wx:if="{{!ended}}" bindtap="invite">邀请朋友加入</button>
+  <button wx:else bindtap="share">分享</button>
+</view>

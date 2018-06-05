@@ -1,0 +1,48 @@
+<view class="list-box">
+  <view class="picture-list">
+    <image src="{{chooseFiles}}" bindtap="chsImg"></image>
+    <view class="picture-text" bindtap="chsImg">
+      <text style="display:{{hideview?none:flex}};">上传图片</text>
+    </view>
+  </view>
+</view>
+
+
+
+<form bindsubmit='formSubmit' bindreset='formResest'>
+  <input type="text" class="inputTitle" name="ClgPeople" bindinput='inputName' placeholder="发布人" />
+
+  <radio-group name="radio-group" bindchange="radioChange" >
+    <text class="normalText">发布者性别    </text>
+     <label><radio value="radio1"/>男</label>
+      <label><radio value="radio2"/>女</label>
+ </radio-group>
+
+
+<text></text>
+  <text> </text>
+  <view class="input">
+    <input class="inputTitle" name="title" bindinput='inputTitle' placeholder="任务名" value="{{inputTitle}}" />
+   <textarea name="intro" maxlength="140" value="{{inputIntro}}" class="inputIntro" placeholder="任务简介"  />
+    <text></text>
+
+
+</view>
+<view class="section">
+  <view class="section__title">日期选择</view>
+  <picker mode="date" value="{{date1}}" start="2018-01-01" end="2020-09-01" bindchange="bindDateChange1">
+
+    起始日期: {{date1}}
+
+  </picker>
+  <picker mode="date" value="{{date2}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange2">
+    <view class="picker">
+      结束日期: {{date2}}
+    </view>
+  </picker>
+</view>
+<button class="btn" hover-class="btn_hover" form-type="formSubmit" bindtap="formSubmit">提交</button>
+</form>
+
+
+

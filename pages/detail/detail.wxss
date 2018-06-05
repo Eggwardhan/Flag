@@ -1,0 +1,142 @@
+/* pages/detail/detail.wxss */
+.container {
+	background-color: white;
+	padding-bottom: 40rpx;
+}
+scroll-view {
+	height: 100%;
+}
+.title {
+	font-size: 35rpx;
+	padding: 25rpx 25rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.titleLeft {
+	display: flex;
+	align-items: center;
+}
+.score {
+	font-size: 30rpx;
+}
+.image {
+	width: 100%;
+}
+.iconWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.iconLeft {
+	display: flex;
+	align-items: center;
+}
+.icon {
+	width: 60rpx;
+	height: 60rpx;
+	margin: 0 15rpx;
+}
+.likeNum {
+	font-size: 28rpx;
+	padding: 0 25rpx;
+}
+.intro {
+	padding: 25rpx 25rpx 15rpx;
+	font-size: 28rpx;
+}
+.comment {
+	padding: 10rpx;
+	font-size: 28rpx;
+	background-color: #ebebeb;
+	width: 92%;
+	margin: 0 auto 25rpx;
+}
+.bold {
+	font-weight: bold;
+}
+.commentWrap {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 10px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	border-top: solid 1px rgba(0,0,0,0.1);
+	background-color: white;
+}
+.commentInput {
+	border-bottom: solid 1px #01b0f1;
+	flex: 6;
+	margin-right: 15rpx;
+	padding-left: 15rpx;
+	font-size: 30rpx;
+	color: #343434;
+}
+.input-placeholder {
+	font-size: 30rpx;
+}
+.commentSubmit {
+	flex: 1;
+	background-color: #01b0f1;
+	color: white;
+	border-radius: 8rpx;
+	text-align: center;
+	font-size: 28rpx;
+	padding: 10rpx 5rpx;
+	line-height: normal;
+}
+.fixCommentWrap {
+	padding-bottom: 68rpx;
+}
+.avatar {
+	width: 60rpx;
+	height: 60rpx;
+	border-radius: 50%;
+	margin-right: 25rpx;
+}
+.introTitle {
+	font-size: 33rpx;
+}
+.introTxt {
+	margin-top: 10rpx;
+}
+.commentItem {
+	display: flex;
+	justify-content: flex-start;
+	line-height: normal;
+	color: #343434;
+	margin: 5rpx 0;
+}
+.nickname {
+	color: #586c94;
+}
+button {
+	background-color: #ebebeb;
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 28rpx;
+	text-align: left;
+}
+button::after {
+	border: none;
+}
+.authCover {
+	padding-top: 400rpx;
+}
+.authBtn {
+	width: 85%;
+	color: white;
+	margin: auto;
+	font-size: 35rpx;
+	text-align: center;
+}
+.triangle {
+	width: 0; 
+	height: 0; 
+	border-left: 10rpx solid transparent; 
+	border-right: 10rpx solid transparent; 
+	border-bottom: 20rpx solid #ebebeb;
+	margin-left: 40rpx;
+}
