@@ -11,7 +11,8 @@ Page({
       "../../images/1.jpg"
     ],
     intro: "abcbalabala",
-    hasAuth:true
+    hasAuth:true,
+    count:0
   },
   onLoad: function (options) {
     var clg = db.getClgDetail(options ? options.clgid : this.data.clgid, app.globalData.g_OPEN_ID)
@@ -30,11 +31,17 @@ Page({
     wx.stopPullDownRefresh()
   },
   quit: function () {
+    wx.request({
+      url: '',
+    })
     this.setData({
       joined: false
     })
   },
   join: function () {
+    wx.request({
+      url: '',
+    })
     this.setData({
       joined: true
     })

@@ -32,4 +32,25 @@
         </button>
     </form>
 </view>
+
+
+//轮播图
+<view class="scroll_box"> 
+    <scroll-view scroll-x style="width: auto;overflow:hidden;">
+      <view class="item_list" wx:for="{{ listData }}" wx:key="index" data-topic="{{item}}" bindtap="goTodetail">
+        <image src='{{ item.img }}'></image>
+        <view class='item_list_buttom'>
+          <view class='tetx-h2'>
+            {{ item.title }}
+          </view>
+          <view class='item_list_buttom_text text-sub2'>
+            {{ item.text }}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+
+
 */

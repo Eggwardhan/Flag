@@ -1,6 +1,6 @@
 var app = getApp()
 var db = require('../../db/db.js')
-
+import { api, challenges } from '../../db/data.js';
 Page({
   data: {
     userClgs: [],

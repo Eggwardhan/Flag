@@ -2,6 +2,7 @@ var app = getApp();
 var auth=app.globalData.auth;
 Page({
   data: {
+    clgId:'',
     hideview: true,
     chooseFiles: "../../images/picture.png",
    
@@ -27,7 +28,7 @@ Page({
         console.log(res)
         console.log("imgL" + imgLength)
         var filePath = res.tempFilePaths[0];
-        that.uploadImg(filePath);
+        
         that.setData({
           chooseFiles: imgArr.concat(res.tempFilePaths)
         });
@@ -35,10 +36,12 @@ Page({
     })
     if (imgLength == 0) return;  //现在存在问题T T想实现的是若不选择图片则不变
   },
-  /*
+  
   uploadImg(filePath) {
+    var that=this;
     wx.uploadFile({
-      url: 'http://upload-z1.qiniup.com',
+      url: 'https://www.eggwardhan.com/?addClgImgs' + app.globalData.auth+'&'+that.data.clgId,
+      method:'POST',
       filePath: filePath,
       name: 'file',
       formData: {
@@ -52,7 +55,7 @@ Page({
         console.error(error);
       }
     })
-  },*/
+  },
 
   
   bindDateChange1: function (e) {
@@ -76,12 +79,13 @@ Page({
       var that = this;
       var formData = e.detail.value; //获取表单所有input的值    
       wx.request({
-        url: 'http://139.199.121.65/setClgs?auth='+auth,
+        url: 'https://www.eggwardhan.com/setClg?auth=' + app.globalData.auth,
+        method:'POST',
         header: {
           "Content-Type": "application/json"
         }, 
         dataType: JSON,
-        body: {
+        data: {
           title: that.data.inputTitle,
           intro: that.data.intro,
           startTime: that.data.data1, 
@@ -92,7 +96,15 @@ Page({
 
         success: function (res) {
           console.log(res.data)
+          wx.setStorage({
+            key: 'clgId'+that.data.inputTitle,
+            data: res.data.clgId,
+          })
+          that.setData({
+            clgId:res.data.clgId
+          })
           console.log("SUCCESS")
+          that.uploadImg(filePath);
         },
        fail:function(res){
          console.log("failedT T")

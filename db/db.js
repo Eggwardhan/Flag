@@ -1,5 +1,10 @@
 var data = require('data.js')
-
+const apiBase = 'https://www.eggwardhan.com/'
+export const api = {
+  // 获取id
+  getId: apiBase + '?auth=',
+  }
+ 
 var getUser = function (userid) {
   for (let user of data.users)
     if (user.userid = userid)
