@@ -1,0 +1,6 @@
+<template name="postItemTpl">
+  <view class="newest-list">
+      <image mode='aspectFill' src="{{item.images}}" ></image>
+      <view class="newest-text">{{item.title}}</view>
+  </view>              
+</template>

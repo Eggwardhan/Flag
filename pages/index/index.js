@@ -1,6 +1,8 @@
 var app = getApp()
 var db = require('../../db/db.js')
+var da=require('../../db/data.js')
 import { api, challenges } from '../../db/data.js';
+
 Page({
   data: {
     userClgs: [],
@@ -14,17 +16,39 @@ Page({
     , indicatorDots: true
     , autoplay: false
     , interval: 3000
-    , duration: 500
+    , duration: 500,
+    
     
   
   },
   onLoad: function () {
+    let that=this;
+    //test da
+    console.log(da.challenges)
+    this.setData({
+      postList:da.challenges
+    })
+
     console.log('onload')
-    var userClgs = db.getUserClgs(app.globalData.g_OPEN_ID)
+    /*var userClgs = db.getUserClgs(app.globalData.auth)
     if (!userClgs) return
     //console.log(userClgs)
     this.setData({
       userClgs: userClgs
+    })*/
+    wx.request({
+      url: 'https://www.eggwardhan.com/getRecommendClgs?auth=' + app.globalData.auth,
+      method: "GET",
+      success: function (res) {
+        console.log('success')
+        console.log(res.data)
+        that.setData({
+          postList:res.data
+        })
+      },
+      fail:function(error){
+        console.error(error)
+      }
     })
   },
 
@@ -38,8 +62,10 @@ Page({
     })
   },
   goDetail: function (event) {
+    var postId=event.currentTarget.dataset.postId;
+    console.log(postId);
     wx.navigateTo({
-      url: '../detail/detail?clgid=' + event.currentTarget.dataset.clgid
+      url: '../detail/detail?clgid=' + postId,
     })
   },
   switchTab:function(e){

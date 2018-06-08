@@ -50,7 +50,11 @@
       </view>
     </scroll-view>
   </view>
-
-
+  require template
+ <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+          <view catchtap='goDetail' data-post-id='{{item.postId}}'>
+              <template is="postItemTpl" data="{{...item}}" />
+          </view>
+        </block>   
 
 */

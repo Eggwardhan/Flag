@@ -2,7 +2,7 @@
   <view class="picture-list">
     <image src="{{chooseFiles}}" bindtap="chsImg"></image>
     <view class="picture-text" bindtap="chsImg">
-      <text style="display:{{hideview?none:flex}};">上传图片</text>
+      <text style="display:{{hideview?none:flex}};" hidden='{{!hideview}}'>上传图片</text>
     </view>
   </view>
 </view>

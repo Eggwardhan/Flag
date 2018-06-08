@@ -1,11 +1,10 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/explore/explore",
     "pages/build/build",
-    "pages/detail/detail"
-    
+    "pages/detail/detail",
+    "pages/template/postItemTpl"
   ],
   "window": {
     "navigationBarBackgroundColor": "#a0eee1",

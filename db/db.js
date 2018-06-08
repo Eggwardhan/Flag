@@ -2,23 +2,38 @@ var data = require('data.js')
 const apiBase = 'https://www.eggwardhan.com/'
 export const api = {
   // 获取id
-  getId: apiBase + '?auth=',
+  getUserClgs: apiBase + 'getUserClgs?auth=',
+  getRecommendClgs: apiBase + 'getRecommendClgs',
   }
+export function getRecommendClgs(clgId){
+ wx.request({
+   url: api.getRecommendClgs,
+   method:'GET',
+   success:function(res){
+     
+   }
+ })
+}  
+export default class Text{
+ constructor(postId){
+   this.storageKeyName='postList';
+   this.postId=postId;
+ } 
+ /*
+ getPostItemById(){
+   var postsData=this.getAllPostData();
+   var len=postsData.length;
+   for(var i=0;i<len;i++){
+     if(postsData[i].postId==this.postId){
+       return{
+         index:i,
+         data:postsData[i]
+       }
+     }
+   }
+ }*/
  
-var getUser = function (userid) {
-  for (let user of data.users)
-    if (user.userid = userid)
-      return user
-  return null
 }
-
-var getClg = function (clgid) {
-  for (let clg of data.challenges)
-    if (clg.clgid == clgid)
-      return clg
-  return null
-}
-
 var getClgGeneral = function (clgid) {
   var clg = getClg(clgid)
   if (!clg) return null
@@ -66,16 +81,7 @@ var getClgDetail = function (clgid, userid) {
   return clgDetail
 }
 
-var getUserClgs = function (userid) {
-  var user = getUser(userid)
-  if (!user) return null
-  var userClgs = []
-  for (let clgid of user.clgsid) {
-    var clg = getClgGeneral(clgid)
-    if (clg) userClgs.push(clg)
-  }
-  return userClgs
-}
+
 
 var getRecommendClgs = function () {
   var recommendClgs = []
@@ -86,15 +92,7 @@ var getRecommendClgs = function () {
   return recommendClgs
 }
 
-var getLocalLatestClgs = function (location) {
-  var clgs = []
-  clgs.push(data.challenges[0])
-  return clgs
-}
 
 module.exports = {
-  getClgDetail: getClgDetail,
-  getUserClgs: getUserClgs,
-  getRecommendClgs: getRecommendClgs,
-  getLocalLatestClgs: getLocalLatestClgs
+ 
 }

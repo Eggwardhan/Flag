@@ -1,3 +1,4 @@
+<import src="template/postItemTpl.wxml"/>
 
 <view class="top-tab flex-wrp flex-tab ">
   <view class="toptab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab"> {{idx}}:{{itemName}} </view>
@@ -17,25 +18,19 @@
     <view class="list-box">
         <view class="newest-list">
             <navigator url="../detail/detail">
-                <image src=""></image>
-                <view class="newest-text"><text>挑战1</text></view>
+                <image mode='aspectFill' src="../../images/1.jpg" ></image>
+                <view class="newest-text">{{challengeTitle}}</view>
                 <view class="newest-text"><text>7-8</text></view>
+                
             </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="../detail/detail">
-                <image src=""></image>
-                <view class="newest-text"><text>挑战2</text></view>
-                <view class="newest-text"><text>9-9</text></view>
-            </navigator>
-        </view>
-        <view class="newest-list">
-            <navigator url="../detail/detail">
-                <image src=""></image>
-                <view class="newest-text"><text>喜马拉雅山</text></view>
-                <view class="newest-text"><text>2018-8-8</text></view>
-            </navigator>
-        </view>
+        </view> 
+          <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+               <view class="newest-list" catchtap="goDetail" data-post-id='{{item._id}}'>
+               <image mode='aspectFill' src="https://www.eggwardhan.com{{item.images[0]}}" ></image>
+               <view class="newest-text">"{{item.title}}"</view>
+               </view>    
+          </block>                
+       
     </view>
  </view>
   
@@ -50,6 +45,7 @@
 <navigator url="../build/build">
 
   <view class="float-action" bindtap="ballClickEvent" style="opacity: {{ballOpacity}};bottom:{{ballBottom}}px;right:{{ballRight}}px;" bindtouchmove="ballMoveEvent" > 
-</view></navigator>
+</view>
+</navigator>
 
 </scroll-view>

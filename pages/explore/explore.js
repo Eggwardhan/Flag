@@ -7,14 +7,14 @@ Page({
     localLatestClgs: []
   },
   onLoad: function () {
-    var recommendClgs = db.getRecommendClgs()
+  /*  var recommendClgs = db.getRecommendClgs()
     var localLatestClgs = db.getLocalLatestClgs('demolocation')
     //console.log(recommendClgs)
     //console.log(localLatestClgs)
     this.setData({
       recommendClgs: recommendClgs,
       localLatestClgs: localLatestClgs
-    })
+    })*/
   },
   onPullDownRefresh: function () {
     this.onLoad()

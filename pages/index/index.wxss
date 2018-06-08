@@ -17,9 +17,10 @@
     margin-right: 0;
 }
 .newest-list image{
-    width: 180rpx;
-    height: 180rpx;
+    width: 500rpx;
+    height: 250rpx;
     margin: 30rpx 0 20rpx;
+    
 }
 .newest-list .newest-text{
     font-size: 32rpx;

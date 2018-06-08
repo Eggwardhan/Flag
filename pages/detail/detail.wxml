@@ -24,7 +24,7 @@
         </view>
 
         <view class="intro">
-            <view class="introTitle bold">《{{data.title}}》</view>
+            <view class="introTitle bold">*{{data.title}}*</view>
             <view class="introTxt">{{data.intro}}</view>
         </view>
         <block wx:if="{{comments.length}}">

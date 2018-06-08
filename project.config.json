@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -49,6 +49,12 @@
 					"name": "detail",
 					"pathName": "pages/detail/detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detailtest",
+					"pathName": "pages/detail/detail",
+					"query": "clgId=5af43066a88188d96df23d7b"
 				}
 			]
 		}

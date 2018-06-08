@@ -5,7 +5,7 @@ Page({
     clgId:'',
     hideview: true,
     chooseFiles: "../../images/picture.png",
-   
+    
     index: 0,
     date1: "2018-5-20",
     date2: '2018-11-11',
@@ -28,31 +28,33 @@ Page({
         console.log(res)
         console.log("imgL" + imgLength)
         var filePath = res.tempFilePaths[0];
-        
+        imgLength++;
         that.setData({
-          chooseFiles: imgArr.concat(res.tempFilePaths)
+          chooseFiles: filePath
+          
         });
       }
     })
     if (imgLength == 0) return;  //现在存在问题T T想实现的是若不选择图片则不变
   },
   
-  uploadImg(filePath) {
+  uploadImg() {
     var that=this;
     wx.uploadFile({
-      url: 'https://www.eggwardhan.com/?addClgImgs' + app.globalData.auth+'&'+that.data.clgId,
-      method:'POST',
-      filePath: filePath,
-      name: 'file',
+      url: 'https://www.eggwardhan.com/addClgImgs?auth=' + app.globalData.auth +'&clgId=5b17f6feb22eb32ce11702e6',
+      
+      filePath: that.data.chooseFiles,
+      name: 'images',
       formData: {
-        key: this.data.key,
-        token: this.data.credentials
+     
       },
       success: function (res) {
         console.log(res)
+        console.log('filepath='+this.filePath)
       },
       fail: function (error) {
-        console.error(error);
+        console.error(error)
+        console.log('filepat=' + that.data.chooseFiles)
       }
     })
   },
@@ -104,7 +106,7 @@ Page({
             clgId:res.data.clgId
           })
           console.log("SUCCESS")
-          that.uploadImg(filePath);
+          that.uploadImg();
         },
        fail:function(res){
          console.log("failedT T")
